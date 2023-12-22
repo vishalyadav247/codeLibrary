@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="review-section" style="height: 120vh;background-color: aquamarine;">
+
+    </div>
+    <!-- Pagination Controls -->
+    <div class="review pagination">
+        <button id="prevPage">« Previous</button>
+        <span id="pagesContainer"></span> <!-- Container for page numbers -->
+        <button id="nextPage">Next »</button>
+    </div>
+    <script>
+        let paginationButtons = document.querySelectorAll('.review.pagination > button');
+        let paginationButtons2 = document.querySelectorAll('.review.pagination > #pagesContainer');
+        let buttonEvent = [...paginationButtons, ...paginationButtons2]
+        for (let i of buttonEvent) {
+            i.addEventListener('click', function scrollToReviewSection() {
+                const reviewSection = document.getElementById('review-section');
+                const yOffset = 0;
+                const y = reviewSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            })
+        }
+    </script>
+</body>
+
+</html>
