@@ -1,0 +1,14 @@
+<script>
+var headers = $(".section5-header");
+var subparas = $(".section5-subpara");
+headers.on("click", function() {
+var para = $(this).next(".section5-subpara");
+var isActive = $(this).hasClass("active-one");
+subparas.slideUp(250);
+headers.removeClass("active-one");
+if (!isActive) {
+para.slideDown(250);
+$(this).addClass("active-one");
+}
+});
+</script>
